@@ -17,6 +17,7 @@ import {
   Mail,
   CreditCard,
 } from "lucide-react"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 export default function DashboardPage() {
   return (
@@ -33,6 +34,8 @@ export default function DashboardPage() {
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
+          {/* Кнопка для переключения темы */}
+          <ThemeToggle />
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
           <h1 className="text-2xl font-bold">CRM Analysis Dashboard</h1>
@@ -221,3 +224,5 @@ export default function DashboardPage() {
     </SidebarProvider>
   )
 }
+
+
