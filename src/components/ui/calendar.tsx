@@ -50,7 +50,8 @@ function Calendar({
         day_range_end: "day-range-end",
         day_selected:
           "bg-gray-900 text-gray-50 hover:bg-gray-900 hover:text-gray-50 focus:bg-gray-900 focus:text-gray-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50 dark:hover:text-gray-900 dark:focus:bg-gray-50 dark:focus:text-gray-900",
-        day_today: "bg-gray-100 text-gray-900 dark:bg-gray-800 dark:text-gray-50",
+        // Здесь изменили стили для текущего дня: красный фон и белый текст
+        day_today: "bg-red-500 text-white dark:bg-red-600 dark:text-white",
         day_outside:
           "day-outside text-gray-500 aria-selected:bg-gray-100/50 aria-selected:text-gray-500 dark:text-gray-400 dark:aria-selected:bg-gray-800/50 dark:aria-selected:text-gray-400",
         day_disabled: "text-gray-500 opacity-50 dark:text-gray-400",
@@ -74,3 +75,4 @@ function Calendar({
 Calendar.displayName = "Calendar"
 
 export { Calendar }
+

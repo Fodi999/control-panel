@@ -11,15 +11,15 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } fr
 // Обновлённый список навигационных элементов с корректными URL'ами для всех страниц
 const data = {
   user: {
-    name: "Admin User",
+    name: "Администратор",
     email: "admin@example.com",
     avatar: "/logo1.png",
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "Robot CRM",
       logo: LayoutDashboard,
-      plan: "Enterprise",
+      plan: "Предприятие",
     },
     {
       name: "Acme Corp.",
@@ -29,40 +29,40 @@ const data = {
   ],
   navMain: [
     {
-      title: "Dashboard",
+      title: "Панель управления",
       // Папка для страницы Dashboard называется dashbord, поэтому URL обновлён:
       url: "/dashbord",
       icon: LayoutDashboard,
       isActive: true,
     },
     {
-      title: "Schedules",
+      title: "Расписания",
       url: "/schedules",
       icon: Calendar,
     },
     {
-      title: "Chat",
+      title: "Чат",
       url: "/chat",
       icon: MessageSquare,
     },
     {
-      title: "Calendar",
+      title: "Календарь",
       url: "/calendar",
       icon: CalendarDays,
     },
     {
-      title: "Payments",
+      title: "Платежи",
       url: "/payments",
       icon: CreditCard,
     },
     // Если нужны другие страницы, можно добавить их сюда, например:
     // {
-    //   title: "Clients",
+    //   title: "Клиенты",
     //   url: "/clients",
     //   icon: Users,
     // },
     // {
-    //   title: "Settings",
+    //   title: "Настройки",
     //   url: "/settings",
     //   icon: Settings,
     // },
