@@ -1,12 +1,17 @@
-// src/app/dashbord/page.tsx
+"use client";
+
 import { AppSidebar } from "@/components/app-sidebar";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage } from "@/components/ui/breadcrumb";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbList,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Separator } from "@/components/ui/separator";
-// Импортируем обёртку для переключения темы, которая рендерится только на клиенте
 import { ThemeToggleWrapper } from "@/components/ThemeToggleWrapper";
 
-// Импортируем все компоненты карточек
+// Импорты карточек
 import { TotalCustomers } from "@/components/dashbord/TotalCustomers";
 import { TotalRevenue } from "@/components/dashbord/TotalRevenue";
 import { UpcomingAppointments } from "@/components/dashbord/UpcomingAppointments";
@@ -28,52 +33,61 @@ export default function DashboardPage() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
-          <SidebarTrigger className="-ml-1" />
-          <Separator orientation="vertical" className="mr-2 h-4" />
+        <header className="flex h-14 sm:h-16 shrink-0 items-center gap-2 border-b border-gray-800 bg-gradient-to-br from-gray-900 to-black px-3 sm:px-4">
+          <SidebarTrigger className="-ml-1 text-gray-300 hover:text-white transition-colors" />
+          <Separator orientation="vertical" className="mr-2 h-3 sm:h-4 bg-gray-700" />
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbPage>Dashboard</BreadcrumbPage>
+                <BreadcrumbPage className="text-gray-300 text-sm sm:text-base">
+                  Dashboard
+                </BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-          {/* Используем обёртку, чтобы компонент переключения темы рендерился только на клиенте */}
-          <ThemeToggleWrapper />
+          <div className="ml-auto">
+            <ThemeToggleWrapper />
+          </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4">
-          <h1 className="text-2xl font-bold">CRM Analysis Dashboard</h1>
+        <div className="flex-1 p-3 sm:p-4 space-y-4 sm:space-y-6 bg-gradient-to-br from-gray-900 to-black text-gray-100">
+          <h1 className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            CRM Dashboard
+          </h1>
           {/* Первая строка карточек */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <TotalCustomers />
             <TotalRevenue />
             <UpcomingAppointments />
             <OpenSupportTickets />
           </div>
 
-          {/* Вторая строка: Revenue Overview и Customer Segmentation */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-            <RevenueOverview />
-            <CustomerSegmentation />
+          {/* Вторая строка */}
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 lg:grid-cols-7">
+            <div className="lg:col-span-4">
+              <RevenueOverview />
+            </div>
+            <div className="lg:col-span-3">
+              <CustomerSegmentation />
+            </div>
           </div>
 
-          {/* Третья строка карточек */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {/* Третья строка */}
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <CustomerRetentionRate />
             <AverageOrderValue />
             <CustomerAcquisitionCost />
             <CustomerLifetimeValue />
           </div>
 
-          {/* Четвёртая строка: Payments, Messages и Mail */}
-          <div className="grid gap-4 md:grid-cols-3">
+          {/* Четвёртая строка */}
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-3">
             <ManagePayments />
             <Messages />
             <MailComponent />
           </div>
 
-          {/* Пятая строка: Kitchen Dashboard и Order Logistics */}
-          <div className="grid gap-4 md:grid-cols-2">
+          {/* Пятая строка */}
+          <div className="grid gap-3 sm:gap-4 grid-cols-1 md:grid-cols-2">
             <KitchenDashboard />
             <OrderLogistics />
           </div>

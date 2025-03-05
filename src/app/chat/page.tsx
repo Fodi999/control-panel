@@ -60,7 +60,7 @@ export default function ChatPage() {
       }
 
       // Передаём параметр username=Admin
-      const wsUrl = `wss://go-robot-670748333372.us-central1.run.app/ws?client_id=${wsSingleton.clientId}&chat_id=${wsSingleton.chatId}&username=${encodeURIComponent(adminName)}`;
+      const wsUrl = `wss://remote-marilee-fodifood-7bbeaaf7.koyeb.app/ws?client_id=${wsSingleton.clientId}&username=${encodeURIComponent(adminName)}&is_admin=true`;
 
 
       const socket = new WebSocket(wsUrl);

@@ -9,7 +9,6 @@ import { EmployeeScheduleTable, Employee } from "@/components/schedules/Employee
 import { EditScheduleDialog } from "@/components/schedules/EditScheduleDialog";
 import { days } from "@/utils/days";
 
-// Вспомогательные функции для работы с датами и расписанием
 function getWeekDates(referenceDate: Date): Date[] {
   const dateCopy = new Date(referenceDate);
   const dayOfWeek = dateCopy.getDay();
@@ -72,8 +71,6 @@ export default function SchedulesPage() {
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date());
   const [selectedDay, setSelectedDay] = useState<string>("Monday");
   const [employees, setEmployees] = useState<Employee[]>(initialEmployees);
-
-  // Состояния для модального окна
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingEmpId, setEditingEmpId] = useState<number | null>(null);
   const [newTime, setNewTime] = useState<string>("");
@@ -107,28 +104,17 @@ export default function SchedulesPage() {
       <AppSidebar />
       <SidebarInset>
         <PageHeader />
-
-        {/* Основной контент */}
-        <div className="flex flex-1 flex-col gap-6 p-8 bg-gray-50 dark:bg-gray-800">
-          <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
-            <h1 className="text-4xl font-extrabold text-gray-800 dark:text-gray-100 tracking-tight">
-              Кто работает сегодня?
+        <div className="flex-1 p-4 sm:p-6 bg-gradient-to-br from-gray-900 to-black text-gray-100 space-y-4 sm:space-y-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h1 className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent tracking-tight">
+              Расписание
             </h1>
             <MonthNavigation
               currentMonth={currentMonth}
-              onPrev={() =>
-                setCurrentMonth(
-                  new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1)
-                )
-              }
-              onNext={() =>
-                setCurrentMonth(
-                  new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1)
-                )
-              }
+              onPrev={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1))}
+              onNext={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1))}
             />
           </div>
-
           <EmployeeScheduleTable
             employees={employees}
             selectedDay={selectedDay}
@@ -137,7 +123,6 @@ export default function SchedulesPage() {
             onOpenModal={handleOpenModal}
           />
         </div>
-
         <EditScheduleDialog
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
